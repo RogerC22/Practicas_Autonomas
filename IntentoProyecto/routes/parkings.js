@@ -3,8 +3,8 @@ const { check }=  require('express-validator')  ;
 const { obtenerParkings, 
         obtenerParking,
         crearParking,
-        actualizarPago,
-        borrarPago     
+        actualizarParking,
+        borrarParking     
 } = require('../controllers').Parking;
 
 const { validarCampos  } = require('../middlewares');
@@ -19,7 +19,7 @@ router.post('/',
 [check('numParking','Detallar el parqueadero es obligatorio').not().isEmpty(), validarCampos]
 , crearParking)
 router.put('/:id', [ check('id', 'El id no es válido').isMongoId(), validarCampos ],
-  actualizarPago)
-router.delete('/:id', [ check('id', 'El id no es válido').isMongoId(), validarCampos ] , borrarPago)
+  actualizarParking)
+router.delete('/:id', [ check('id', 'El id no es válido').isMongoId(), validarCampos ] , borrarParking)
 
 module.exports = router;

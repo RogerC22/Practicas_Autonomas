@@ -34,22 +34,22 @@ const crearParking = async (req,res )=>{
         res.status(201).json(parkingNuevo);
 
 }
-const actualizarPago = async (req,res )=>{
+const actualizarParking = async (req,res )=>{
     const {id} = req.params;
     const { estado, ...data } =  req.body;
-    const pagoModificado= await Pago.findByIdAndUpdate(id, data , { new:true } );
-      res.json(pagoModificado);
+    const parkingModificado= await Parking.findByIdAndUpdate(id, data , { new:true } );
+      res.json(parkingModificado);
 }
-const borrarPago = async (req,res)=>{
+const borrarParking = async (req,res)=>{
     const { id } = req.params
-    const pagoBorrado= await Pago.findByIdAndUpdate(id,{estado:false}
+    const parkingBorrado= await Parking.findByIdAndUpdate(id,{estado:false}
         , {new:true});
-    res.json(pagoBorrado);
+    res.json(parkingBorrado);
 }
 module.exports = {
     obtenerParkings,
     obtenerParking,
     crearParking,
-    actualizarPago,
-    borrarPago
+    actualizarParking,
+    borrarParking
 }

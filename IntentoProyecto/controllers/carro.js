@@ -26,7 +26,7 @@ const crearCarro = async (req,res )=>{
         {
             res.status(400).json({
                 message:
-                `El producto con ese nombre ya existe ${carroExiste.numPlaca}`
+                `El auto con esa placa ya existe ${carroExiste.numPlaca}`
             })
         }
         const carro = new Carro(body);

@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose')
 const CarsSchema = Schema({
    numPlaca: {
        type: Number,
-       required: [true, `El nombre del producto es obligatorio`],
+       required: [true, `La placa del automovil es obligatoria`],
        unique:true
    },
    carType: {

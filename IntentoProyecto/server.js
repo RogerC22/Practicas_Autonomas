@@ -7,10 +7,11 @@ class Server {
         this.router = express.Router();
         this.port = process.env.PORT;
         this.paths= {
-            productos:'/api/productos',
+            carros:'/api/carros',
             admins:'/api/admins',
             pagos:'/api/detailsPayments',
-            parkings:'/api/parkings'
+            parkings:'/api/parkings',
+            users:'/api/users'
         }
         this.conectarBD();
         this.middlewares();
@@ -28,7 +29,7 @@ class Server {
         
     }
     routes(){
-        this.app.use(this.paths.productos, 
+        this.app.use(this.paths.carros, 
             require('./routes/carros')
         ),
         this.app.use(this.paths.admins,
@@ -39,6 +40,9 @@ class Server {
         ),
         this.app.use(this.paths.parkings,
             require('./routes/parkings')
+        ),
+        this.app.use(this.paths.users,
+            require('./routes/users')
         )
 
     }
