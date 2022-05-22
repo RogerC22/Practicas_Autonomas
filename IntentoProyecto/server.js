@@ -8,6 +8,8 @@ class Server {
         this.port = process.env.PORT;
         this.paths= {
             productos:'/api/productos',
+            admins:'/api/admins',
+            pagos:'/api/detailsPayments'
         }
         this.conectarBD();
         this.middlewares();
@@ -25,8 +27,15 @@ class Server {
         
     }
     routes(){
-        this.app.use(this.paths.productos
-            , require('./routes/productos') )
+        this.app.use(this.paths.productos, 
+            require('./routes/carros')
+        ),
+        this.app.use(this.paths.admins,
+            require('./routes/admins')
+        ),
+        this.app.use(this.paths.pagos,
+            require('./routes/detailsPayments')
+        )
 
     }
     listen(){
