@@ -1,37 +1,37 @@
 const { response } = require('express')
- const { Pago } = require('../models')
+ const { Parking } = require('../models')
 
- const obtenerPagos= async  (req,res = response )=>{
+ const obtenerParkings= async  (req,res = response )=>{
      const { limite=10, desde=0 } =  req.query;
      const query = { estado:true };
-    const [ total, pagos ] = await  Promise.all([
-         Pago.countDocuments(query),
-         Pago.find(query)
+    const [ total, parkings ] = await  Promise.all([
+         Parking.countDocuments(query),
+         Parking.find(query)
     ])
     res.json({
         total,
-        pagos
+        parkings
     })
 }
-const obtenerPago = async (req,res= response) =>{
+const obtenerParking = async (req,res= response) =>{
     const {id} = req.params;
-    const pago = await  Pago.findById(id);
-    res.json(pago);
+    const parking = await  Parking.findById(id);
+    res.json(parking);
 }
-const crearPago = async (req,res )=>{
+const crearParking = async (req,res )=>{
         const {  estado,  ...body } =  req.body;
 
-        const pagoExiste = await Pago.findOne({ numPagoDay:body.numPagoDay });
-        if (pagoExiste)
+        const parkingExiste = await Parking.findOne({ numParking:body.numParking });
+        if (parkingExiste)
         {
             res.status(400).json({
                 message:
-                `El pago con ese nombre ya existe ${pagoExiste.numPagoDay}`
+                `El parking con este id ya existe ${parkingExiste.numParking}`
             })
         }
-        const pago = new Pago(body);
-        const pagoNuevo =  await pago.save();
-        res.status(201).json(pagoNuevo);
+        const parking = new Parking(body);
+        const parkingNuevo =  await parking.save();
+        res.status(201).json(parkingNuevo);
 
 }
 const actualizarPago = async (req,res )=>{
@@ -47,9 +47,9 @@ const borrarPago = async (req,res)=>{
     res.json(pagoBorrado);
 }
 module.exports = {
-    obtenerPagos,
-    obtenerPago,
-    crearPago,
+    obtenerParkings,
+    obtenerParking,
+    crearParking,
     actualizarPago,
     borrarPago
 }

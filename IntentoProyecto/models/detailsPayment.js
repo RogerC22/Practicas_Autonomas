@@ -4,10 +4,15 @@
 const { Schema, model } = require('mongoose')
 
 const PagosSchema = Schema({
+    numPagoDay: {
+        type: Number,
+        required: [true, `El numero del pago es obligatorio`],
+        unique:true
+    },
     parkingId: {
         type: Number,
-        required: [true, `El id del parqueadero es obligatorio`],
-        unique:true
+        default: null,
+        required:true
     },
     hEntrada: {
         type: Date,

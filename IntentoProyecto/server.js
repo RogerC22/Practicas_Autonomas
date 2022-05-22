@@ -9,7 +9,8 @@ class Server {
         this.paths= {
             productos:'/api/productos',
             admins:'/api/admins',
-            pagos:'/api/detailsPayments'
+            pagos:'/api/detailsPayments',
+            parkings:'/api/parkings'
         }
         this.conectarBD();
         this.middlewares();
@@ -35,6 +36,9 @@ class Server {
         ),
         this.app.use(this.paths.pagos,
             require('./routes/detailsPayments')
+        ),
+        this.app.use(this.paths.parkings,
+            require('./routes/parkings')
         )
 
     }
