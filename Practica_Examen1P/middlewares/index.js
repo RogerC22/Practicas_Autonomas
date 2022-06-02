@@ -13,6 +13,7 @@ const validacion = [
     .not().withMessage('El campo "apellido" es obligatorio')
     .notEmpty().withMessage('El campo esta vacio')
     .matches(/^[A-Z][A-z\s]+$/).withMessage('La primera letra debe ser MAYUSCULA obligatoriamente'),
+    
     //Longitud de contraseña minima
     check("password")
     .exists()
