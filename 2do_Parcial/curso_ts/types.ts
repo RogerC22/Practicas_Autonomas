@@ -37,18 +37,56 @@
 
 //3. Definiendo arreglos
 
-let personaa = { //mediante inferencia de tipos
-    nombre: 'Raul', //Se declaran los valores para los atributos
-    edad: 14,
-    direccion: {
-        calle: '312',
-        comuna: 'tarqui'
-    },
-    cursos: ['Flutter', 'Patrones de diseño', 'SQL']    
-};
+// let personaa = { //mediante inferencia de tipos
+//     nombre: 'Raul', //Se declaran los valores para los atributos
+//     edad: 14,
+//     direccion: {
+//         calle: '312',
+//         comuna: 'tarqui'
+//     },
+//     cursos: ['Flutter', 'Patrones de diseño', 'SQL']    
+// };
 
-let hobbies: string[] = ['Futbol', 'Ps4', 'Escuchar Musica']; //arreglo string
+// let hobbies: string[] = ['Futbol', 'Ps4', 'Escuchar Musica']; //arreglo string
 
-let hobbies2: any[] = ['Futbol', 'Ps4', 'Escuchar Musica', 1, 2, true]; //arreglo que admite cualquier tipo de dato "any"
+// //recorrer un arreglo con un form
 
-console.log(hobbies);
+// for(const hobbie of hobbies){
+//     console.log(hobbie.toLocaleUpperCase());
+// }
+
+// let hobbies2: any[] = ['Futbol', 'Ps4', 'Escuchar Musica', 1, 2, true]; //arreglo que admite cualquier tipo de dato "any"
+
+// //console.log(hobbies);
+
+// 4. Tipo de dato Tuples:
+
+// type vehiculoType = [string, number, string]; //Definiendo una restriccion para los datos de cada arreglo
+// let automovil: vehiculoType= ['Chevrolet', 2005, 'Verde']; //Se le asignan los tipos a cada atributo
+
+// let motocicleta: vehiculoType = ['yamaha', 2005, 'rojo']; //Se usara entonces los tipos string, number, string de la restriccion
+// console.log(automovil);
+
+
+// 5. tipo de dato "Enums":
+ 
+// enum role {estudiante, profesor} //mediante enum se asignan roles a la persona
+// let personaa = { //mediante inferencia de tipos
+//     nombre: 'Raul', //Se declaran los valores para los atributos
+//     edad: 14,
+//     direccion: {
+//         calle: '312',
+//         comuna: 'tarqui'
+//     },
+//     cursos: ['Flutter', 'Patrones de diseño', 'SQL'],
+//     role: role.estudiante    
+// };
+// //6. tipo de dato "any" (no recomendable para evitar incumplir con el proposito de ts)
+// let hobbies: any[] = ['Jugar smite', 'jugar clash royale', 'jugar genshin', 1];
+// console.log(personaa);
+
+// 7. tipo de dato literal:
+
+// let vehiculo: 'automovil'; //un dato asignado que es tomado como un tipo, el cual no podra ser cambiado.
+
+// vehiculo = 'dsdsd';
