@@ -90,3 +90,5 @@
 // let vehiculo: 'automovil'; //un dato asignado que es tomado como un tipo, el cual no podra ser cambiado.
 
 // vehiculo = 'dsdsd';
+
+//Hasta 1:23:22 del video (seguir viendo desde funciones)
