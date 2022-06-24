@@ -17,11 +17,20 @@ interface Staff{
     role: Role
 }
 
+interface Billable{
+    total: number,
+    currentBill(): string
+}
+
 //Definimos un objeto "medico"
 const medico = {
     nombre: "Martin",
     email: "hola@gmail.com",
-    role: Role.Doctor
+    role: Role.Doctor,
+    total: 25,
+    currentBill(){
+        return `El valor actual de la factura es de ${this.total}`
+    }
 }
 
 //Mostramos la staff mediante una funcion y recibiendo como parametros la interface (Staff)
@@ -29,5 +38,11 @@ const mostrarStaff = (staff: Staff) =>{
     console.log(staff);
 }
 
+const printCurrentBill = (bill: Billable) =>{
+    console.log(bill.currentBill());
+}
+
 //Llamamos a la funcion mostrarStaff pasandole el parametro/objeto medico y asi mostrar sus atributos/contenido
-mostrarStaff(medico);   
+//mostrarStaff(medico);   
+
+printCurrentBill(medico);
